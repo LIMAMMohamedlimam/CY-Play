@@ -62,6 +62,7 @@
                 </li>
                 <li class="nav-link">
                     <h1 class="navigation-h1" data-name="About">About</h1>
+                    
                 </li>
                 <li class="nav-link">
                     <h1 class="navigation-h1" data-name="contact">contact</h1>
@@ -73,7 +74,15 @@
     <!-- Main content section -->
     <main>
     <?php
-        $product_id = 1/* $_GET['id'] */;
+    if (isset($_GET['id'])) {
+        $product_id = $_GET['id'];
+    }else{
+        echo json_encode(array('message' => 'No product id provided'))  ;
+    }
+    
+        
+
+
         $mysqli = new mysqli("localhost", "root", "", "cy-play");
         if($mysqli->connect_error) {
             die("Connection failed: " . $mysqli->connect_error);

@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.id-product{
+  display: none;
+}
+
 .Product-list {
   position: relative;
   top: 20px;
@@ -14,7 +18,13 @@ picture {
   display: inline-block;
   margin: 0;
   position: relative;
-  left: -303px;
+  left: 0px;
+}
+
+.product{
+  display : flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
 
@@ -28,11 +38,15 @@ picture {
 
 .Product-list {
   position: relative;
-  border: 5px solid lime;
+}
+
+.price{
+  font-weight: bold;
+  position: relative;
+  top: 25px;
 }
 
 .Product-list .Product {
-  border: 5px solid red;
 }
 
 .Product-list .Product:not(:first-of-type) {
@@ -41,19 +55,15 @@ picture {
 
 .Product-list .image {
   max-width: 300px;
-  border: 5px solid blue;
 }
 
 .Product-list .info {
-  border: 5px solid orange;
+  flex: 1;
   max-width: 253px;
   position: relative;
-  top: -59px;
-  color: red;
 }
 
 .Product-list .info *  {
-  border: 5px solid #ff0066;
 }
 
 @media (min-width: 500px) {

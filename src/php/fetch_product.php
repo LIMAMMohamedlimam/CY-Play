@@ -37,10 +37,15 @@ $conn->close();
 // the length of the array
 $length = count($products);
 
-// Return the data as JSON
-header('Content-Type: application/json');
-echo json_encode($products );
-echo json_encode($length);
+// if 
+
+// Return the data as JSON if the length is not zero
+if ($length != 0) {
+    header('Content-Type: application/json');
+    echo json_encode($products);
+}else{
+    echo json_encode(array('message' => 'No products fonnd in this category'))  ;
+}
 
 
 ?>

@@ -97,3 +97,17 @@ document.querySelectorAll('.navigation-h1').forEach(item => {
         window.location.href = url;
     });
 });
+
+
+// make an event listener for the elements .title .description #product-image
+/* document.addEventListener('DOMContentLoaded', () => {
+    const productList = document.querySelector('.Product-list');
+    productList.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.matches('.title') || target.matches('.description') || target.matches('#product-image')) {
+            
+            // Redirect to the product page
+            window.location.href = 'product.html';
+        }
+    });
+}); */

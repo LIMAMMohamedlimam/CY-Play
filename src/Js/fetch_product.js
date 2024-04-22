@@ -5,18 +5,22 @@ function fetchProducts(category) {
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
-      console.log(response);
       return response.json();
   })
   .then(data => {
       const productList = document.querySelector('.Product-list');
-      console.log(data);
-      console.log(data.legnth == undefined);
-      console.log(data[0]);
-      console.log(data[1]);
+      console.log(data.message);
       // Check if there is valid data
-      if (data.legnth !== 0 ) {
-        console.log("hey 1");
+      if (data.message == "No products fonnd in this category") {
+            productList.innerHTML = '';
+            productList.innerHTML += `
+            <div class="no-products">
+                <h2>No products available in this category</h2>
+            </div>
+            `;  
+            return;
+        
+      }else if (data.legnth !== 0 ) {
             // Clear the innerHtml of the div
           productList.innerHTML = ''; // Clear the list before adding new products
           data.forEach(productData => {
@@ -29,12 +33,15 @@ function fetchProducts(category) {
                           <h2 class="title">${productData.name}</h2>
                           <p class="description">${productData.description}</p>
                       </div>
+                        <div class="price">
+                            <p class = "price">${productData.price}</p>
+                        </div>
+                        <div class = "id-product">${productData.id}</div>
                   </li>
               `;
           });
           
-      }
-      if(data.legnth == undefined){
+      }/* else{
         console.log("hey 2");
           productList.innerHTML = '';
           productList.innerHTML += `
@@ -42,7 +49,7 @@ function fetchProducts(category) {
               <h2>No products available in this category</h2>
           </div>
           `;
-      }
+      } */
   })
   .catch(error => {
       console.error('Error fetching product data:', error);
@@ -63,4 +70,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all <a> tags that have a data attribute 'data-category'
+    const productList = document.querySelector('.Product-list'); 
 
+    // Add an event listener to each element inside the list
+    productList.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.matches('.title') || target.matches('.description') || target.matches('#product-image') 
+            || target.matches('.price') ) {
+            // Get the product ID
+            const id = target.closest('.product').querySelector('.id-product').textContent;
+            // send the id to the server so it takes it with $_GET['id']
+            /* console.log(id);
+            fetch('/src/php/fetch_product.php?id=${id}')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Store the product data in session storage
+                sessionStorage.setItem('productData', JSON.stringify(data));
+                // Redirect to the product page on new tab
+                window.open('/src/php/product_details.php', '_blank');
+
+            }); */
+            console.log(id);
+            sendProductId(id);
+        }
+    });
+});
+
+
+function sendProductId(productId) {
+    fetch('/src/php/fetch_product.php?id=' + productId)
+    .then(response => response.json())  // Assuming the server responds with JSON
+    .then(data => {
+        console.log(data);  // Handling the JSON data from the server
+        window.open('/src/php/product_details.php', '_blank');
+    })
+    .catch(error => console.error('Error:', error));
+}
