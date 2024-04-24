@@ -54,7 +54,7 @@
     <!-- Vertical navigation menu with titles -->
     <aside class="vertical-nav">
         <h2 id="h-in-vertical-nav">CY PLAY</h2>
-        <h3 id="h-in-vertical-nav">Accueil</h3>
+        <h3 id="h-in-vertical-nav">Product Description</h3>
         <div class="left-side">
             <ul id="nav">
                 <li class="nav-link">
@@ -74,11 +74,12 @@
     <!-- Main content section -->
     <main>
     <?php
-    if (isset($_GET['id'])) {
+    $product_id =1;
+    /* if (isset($_GET['id'])) {
         $product_id = $_GET['id'];
     }else{
         echo json_encode(array('message' => 'No product id provided'))  ;
-    }
+    } */
     
         
 

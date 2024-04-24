@@ -93,3 +93,7 @@ INSERT INTO `productimages` (`id`, `product_id`, `image_url`) VALUES
 (13, 1, '/Project/Projectnew/src/pictures/Products/MSI Katana 15 B12VGK-208FR  Intel Core i7 12650H - 16GB DDR5 - SSD 512GB - Nvidia RTX4070 8GB - 15.6 Full HD 144HZ - Windows 11 Famille - Clavier Azerty RGB/Img3.jpg\r\n'),
 (14, 1, '/Project/Projectnew/src/pictures/Products/MSI Katana 15 B12VGK-208FR  Intel Core i7 12650H - 16GB DDR5 - SSD 512GB - Nvidia RTX4070 8GB - 15.6 Full HD 144HZ - Windows 11 Famille - Clavier Azerty RGB/Img4.jpg\r\n'),
 (15, 1, '/Project/Projectnew/src/pictures/Products/MSI Katana 15 B12VGK-208FR  Intel Core i7 12650H - 16GB DDR5 - SSD 512GB - Nvidia RTX4070 8GB - 15.6 Full HD 144HZ - Windows 11 Famille - Clavier Azerty RGB/Img5.jpg');
+
+
+INSERT INTO `product` (`name`, `description`, `imagelink`, `stock`, `review`, `price`, `nbofachat`, `categorie`)
+(`test` , `test`,`/src/pictures/Products/test.webp`, 10, 4.00, 1449.00, 5, ' GAMING PC', ' MSI\r');

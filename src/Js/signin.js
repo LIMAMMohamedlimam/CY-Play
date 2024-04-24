@@ -41,3 +41,40 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
     xhr.send(JSON.stringify(formData));
 });
+
+
+window.onload = function() {
+    // Everything is fully loaded now
+    const logo = document.getElementById('cy-logo');
+    
+
+    if (logo) {
+        logo.addEventListener('click', () => {
+            window.location.href = 'acceuil.html';
+        });
+    }
+  
+    const logoText = document.getElementById('cy-play-logo-Text');
+    if (logoText) {
+        logoText.addEventListener('click', () => {
+            window.location.href = 'contact.html';
+        });
+    }
+
+    const profpic = document.getElementById('profile-picture');
+
+    if (profpic) {
+        profpic.addEventListener('click', () => {
+            window.location.href = 'signup.html';
+        });
+    }
+
+    const profname = document.getElementById('account-name');
+
+    if (profname) {
+        profname.addEventListener('click', () => {
+            window.location.href = 'signup.html';
+        });
+    }
+
+  };
