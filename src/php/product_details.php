@@ -74,12 +74,12 @@
     <!-- Main content section -->
     <main>
     <?php
-    $product_id =1;
-    /* if (isset($_GET['id'])) {
+    /* $product_id =1; */
+    if (isset($_GET['id'])) {
         $product_id = $_GET['id'];
     }else{
         echo json_encode(array('message' => 'No product id provided'))  ;
-    } */
+    }
     
         
 

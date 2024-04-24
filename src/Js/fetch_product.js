@@ -105,11 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function sendProductId(productId) {
-    fetch('/src/php/fetch_product.php?id=' + productId)
-    .then(response => response.json())  // Assuming the server responds with JSON
-    .then(data => {
-        console.log(data);  // Handling the JSON data from the server
-        window.open('/src/php/product_details.php', '_blank');
-    })
-    .catch(error => console.error('Error:', error));
+    var s  = '/src/php/product_details.php?id=' + productId
+    window.location.href = s; 
 }
