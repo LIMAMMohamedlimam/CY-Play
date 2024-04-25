@@ -19,9 +19,10 @@
         }
   
         data.forEach(command => {
-          const liElement = document.createElement('li');
+            const liElement = document.createElement('li');
+            liElement.id = 'commnad_id';
           const spanElement = document.createElement('span');
-          spanElement.textContent = `${command.product.name}: ${command.product.description}`;
+          spanElement.textContent = `${command.product.name}`;
           liElement.appendChild(spanElement);
           commandContainer.appendChild(liElement);
         });

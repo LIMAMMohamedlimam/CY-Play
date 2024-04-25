@@ -6,14 +6,14 @@ window.onload = function() {
 
     if (logo) {
         logo.addEventListener('click', () => {
-            window.location.href = 'acceuil.html';
+            window.location.href = '/src/modules/acceuil.html';
         });
     }
   
     const logoText = document.getElementById('cy-play-logo-Text');
     if (logoText) {
         logoText.addEventListener('click', () => {
-            window.location.href = 'contact.html';
+            window.location.href = '/src/modules/contact.html';
         });
     }
 
@@ -21,15 +21,25 @@ window.onload = function() {
 
     if (profpic) {
         profpic.addEventListener('click', () => {
-            window.location.href = 'signup.html';
+            window.location.href = '/src/modules/signup.html';
         });
     }
 
     const profname = document.getElementById('account-name');
-
+    const logout = document.getElementById('logout');
     if (profname) {
+        if (profname.textContent === 'Se connecter') {
+            profname.addEventListener('click', () => {
+                window.location.href = '/src/modules/signin.html';
+            });
+        }else{
+            profname.addEventListener('click', () => {
+                logout.style.display = 'block';
+                
+            });
+        }
         profname.addEventListener('click', () => {
-            window.location.href = 'signup.html';
+            /* window.location.href = 'signup.html'; */
         });
     }
 

@@ -4,6 +4,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
+    
+
     // Step 2: Check for empty fields
     if (!email || !password) {
         alert('All fields are required.');
@@ -17,29 +19,34 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         return; // Stop the function if email is invalid
     }
 
-    // Step 4: Submit form
     var formData = {email: email, password: password};
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/src/php/loginUser.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            console.log('Status Code:', xhr.status); // Log status code
-            console.log('Status Text:', xhr.statusText); // Log status text
-            console.log('Response Text:', xhr.responseText); // Log response text
+    console.log(typeof password);
+    
 
-            if (xhr.status == 200) {
-                // Redirect to home page
-                window.location.href = '/src/modules/acceuil.html';
-            } else {
-                // Handle error case
-                alert('Error with request: ' + xhr.statusText);
-            }
+    fetch('/src/php/loginUser.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json()) // Parse the response as JSON
+    .then(data => {
+        console.log('Response Data:', data); // Log the response data
+
+        if (data.status) {
+            // Redirect to home page
+            window.location.href = '/src/modules/acceuil.html';
+        } else {
+            // Handle error case
+            console.log(data);
+            alert('Combinaison email/mot de passe invalide. Veuillez réessayer.');
         }
-    };
-
-    xhr.send(JSON.stringify(formData));
+    })
+    .catch(error => {
+        console.log('An error occurred:', error);
+    });
 });
 
 

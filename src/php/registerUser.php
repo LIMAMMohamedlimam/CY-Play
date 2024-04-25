@@ -33,7 +33,9 @@ $stmt->bind_param("ssss", $name, $email, $password, $pronoun);
 
 $name = $data['name'];
 $email = $data['email'];
-$password = $data['password'] ;/* password_hash($data['password'], PASSWORD_DEFAULT); */
+$password = password_hash($data['password'], PASSWORD_DEFAULT);
+
+/* password_hash($data['password'], PASSWORD_DEFAULT); */
 $pronoun = $data['pronoun'];
 
 

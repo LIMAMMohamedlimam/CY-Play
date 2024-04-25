@@ -50,6 +50,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
   // Step 6: Submit form
   var formData = {name: name, email: email, password: password, pronoun: pronoun};
 
+
   var xhr = new XMLHttpRequest();
   xhr.open('POST', '/src/php/registerUser.php', true);
   xhr.setRequestHeader('Content-Type', 'application/json');

@@ -42,7 +42,8 @@
                 <button id="account-button">
                     <img id="profile-picture" src="/src/pictures/icons/profileicon.webp" alt="">
                 </button>
-                <p id="account-name"></p>
+                <p id="account-name">Se Connecter</p>
+                <button id="logout">Deconnecter</button>
             </div>
         </div>
     </div>
@@ -124,14 +125,15 @@
                 echo "<h6>Fournisseur: ".$row['fournisseur']."</h6>";
                 echo "<h2 width='100px'>".$row['price']."€</h2>";
                 ////Button/////////////////////
-                echo "<center><button><span class='button__text'>Ajouter au panier</span>
-                                <span class='button__icon'><svg xmlns='http://www.w3.org/2000/svg' width='24' viewBox='0 0 24 24'
+                echo "<center><button id='addProduct' ><span id='addProduct' class='button__text'>Ajouter au panier</span>
+                                <span id='addProduct' class='button__icon'><svg id='addProduct' xmlns='http://www.w3.org/2000/svg' width='24' viewBox='0 0 24 24'
                                 stroke-width='2' stroke-linejoin='round' stroke-linecap='round' stroke='currentColor' height='24'
                                 fill='none' class='svg'><line y2='19' y1='5' x2='12' x1='12'></line><line y2='12' y1='12' x2='19'
                                 x1='5'></line></svg>
                             </span>
                         </button></center>";
                 ////////////////////////////
+                echo "<p id='productid' >".$row['id']."</p> ";
                 echo "<h4>".$row['name']."</h4>";
                 echo "<h4>Description du produit :</h4>";
                 echo "<span>".$row['description']."</span>";
@@ -230,5 +232,10 @@
             });
         }
     </script>
+    <script src="/src/Js/session_handler.js"></script>
+    <script src="/src/Js/fetch_commands.js"></script>
+    <script src="/src/Js/index.js"></script>
+    <script src="/src/Js/gestion_stock.js"></script>
+    <script src="/src/Js/logout.js"></script>
 </body>
 </html>

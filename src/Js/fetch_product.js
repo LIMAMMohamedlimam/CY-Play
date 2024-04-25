@@ -35,7 +35,7 @@ function fetchProducts(category) {
                           <p class="description">${productData.description}</p>
                       </div>
                         <div class="price">
-                            <p class = "price">${productData.price}</p>
+                            <p class = "price">${productData.price}&#8364;</p>
                         </div>
                         <div class = "id-product">${productData.id}</div>
                   </li>
