@@ -124,13 +124,13 @@
                 echo "<h6>Fournisseur: ".$row['fournisseur']."</h6>";
                 echo "<h2 width='100px'>".$row['price']."€</h2>";
                 ////Button/////////////////////
-                echo "<button><span class='button__text'>Ajouter au panier</span>
+                echo "<center><button><span class='button__text'>Ajouter au panier</span>
                                 <span class='button__icon'><svg xmlns='http://www.w3.org/2000/svg' width='24' viewBox='0 0 24 24'
                                 stroke-width='2' stroke-linejoin='round' stroke-linecap='round' stroke='currentColor' height='24'
                                 fill='none' class='svg'><line y2='19' y1='5' x2='12' x1='12'></line><line y2='12' y1='12' x2='19'
                                 x1='5'></line></svg>
                             </span>
-                        </button>";
+                        </button></center>";
                 ////////////////////////////
                 echo "<h4>".$row['name']."</h4>";
                 echo "<h4>Description du produit :</h4>";

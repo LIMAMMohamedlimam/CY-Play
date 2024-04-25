@@ -1,31 +1,6 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 24 avr. 2024 à 19:18
--- Version du serveur : 8.2.0
--- Version de PHP : 8.2.13
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de données : `cy_play`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `product`
---
 
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
@@ -42,9 +17,11 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Déchargement des données de la table `product`
---
+
+
+
+
+
 
 INSERT INTO `product` (`id`, `name`, `description`, `stock`, `review`, `price`, `nbofachat`, `categorie`, `fournisseur`,`imagelink`) VALUES
 (1, 'Aerocool APNX FP1-140 (Noir)', 'Le ventilateur de boitier Aerocool APNX FP1 est une série de ventilateurs professionnels conçus pour améliorer votre grandement le refroidissement de votre boitier. Son efficacité trouve son origine dans son épaisseur de 30 mm et ses pales hautes performances.', 50, 4.50, 12.95, 30, 'Ventilateur boîtier', 'AEROCOOL','/src/pictures/Products/Aerocool APNX FP1-140 (Noir)/ventilateur6_1.jpg'),
@@ -63,24 +40,34 @@ INSERT INTO `product` (`id`, `name`, `description`, `stock`, `review`, `price`, 
 (14, 'be quiet! Dark Rock Slim', 'Le Dark Rock Slim de be quiet! offre des performances de refroidissement exceptionnellement élevées de 180 W TDP et un fonctionnement quasi inaudible. Il est donc idéal pour toutes les configurations haut de gamme qui présentent un espace limité.', 45, 4.50, 67.95, 25, 'Ventilateur processeur', 'be quiet!', '/src/pictures/Products/be quiet! Dark Rock Slim/ventilateur4_1.jpg'),
 (15, 'be quiet! Dark Rock TF 2', 'Dans la continuité du ventirad Dark Rock TF de bequiet! le Dark Rock TF 2 est un modèle Top-Flow compatible avec les plateformes Intel 1150/1151/1155/1200/2011(-3)/2066 et AMD AM3 (+) / AM4. Il convient tout particulièrement PC Gaming nécessitant un ventirad efficace pour un encombrement réduit.', 45, 3.80, 102.95, 12, 'Ventilateur processeur', 'be quiet!', '/src/pictures/Products/be quiet! Dark Rock TF 2/ventilateur5_1.jpg');
 
--- --------------------------------------------------------
 
---
--- Structure de la table `productimages`
---
 
-DROP TABLE IF EXISTS `productimages`;
-CREATE TABLE IF NOT EXISTS `productimages` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `product_id` int DEFAULT NULL,
-  `image_url` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `product_id` (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Déchargement des données de la table `productimages`
---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 INSERT INTO `productimages` (`id`, `product_id`, `image_url`) VALUES
 (1, 1, "/src/pictures/Products/Aerocool APNX FP1-140 (Noir)/ventilateur6_1.jpg"),
@@ -151,18 +138,3 @@ INSERT INTO `productimages` (`id`, `product_id`, `image_url`) VALUES
 (66, 15, "/src/pictures/Products/be quiet! Dark Rock TF 2/ventilateur5_2.jpg"),
 (67, 15, "/src/pictures/Products/be quiet! Dark Rock TF 2/ventilateur5_3.jpg"),
 (68, 15, "/src/pictures/Products/be quiet! Dark Rock TF 2/ventilateur5_4.jpg");
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `productimages`
---
-ALTER TABLE `productimages`
-  ADD CONSTRAINT `productimages_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

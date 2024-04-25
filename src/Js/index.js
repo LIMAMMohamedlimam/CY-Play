@@ -37,7 +37,7 @@ window.onload = function() {
 
   
   // Initially hide all dropdowns
-document.querySelectorAll('.skew-menu .dropdown-content').forEach(dropdown => {
+/* document.querySelectorAll('.skew-menu .dropdown-content').forEach(dropdown => {
     dropdown.style.display = 'none';
 });
 
@@ -70,7 +70,7 @@ document.querySelectorAll('.skew-menu li').forEach(item => {
         // Mark this item as having event listeners added to avoid duplication
         item.dataset.listenersAdded = 'true';
     }
-});
+}); */
 
 
 

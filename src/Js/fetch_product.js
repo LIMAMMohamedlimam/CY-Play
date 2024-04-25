@@ -9,6 +9,7 @@ function fetchProducts(category) {
   })
   .then(data => {
       const productList = document.querySelector('.Product-list');
+      console.log(data)
       console.log(data.message);
       // Check if there is valid data
       if (data.message == "No products fonnd in this category") {
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', function(event) {
             event.preventDefault(); // Prevent the default link behavior
             const category = this.getAttribute('category-name'); // Get the category from the data attribute
+            console.log(category)
             fetchProducts(category); // Fetch products for this category
         });
     });

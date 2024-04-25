@@ -53,7 +53,7 @@
     border: 1px solid #25589b;
     background-color: #437bc4;
     border-radius: 5px;
-    margin-left: 170px;
+    /* margin-left: 170px; */
   }
   
   #product-details .single-product-details button, #product-details .single-product-details button .button__icon, #product-details .single-product-details button .button__text {
