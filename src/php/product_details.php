@@ -319,9 +319,12 @@ function imageZoom(imgID, resultID) {
         setTimeout(function() {
             const mainimage = document.getElementById("MainImg");
             mainimage.addEventListener("mouseover", function() {
-                
+                document.getElementById("myresult").style.display = "block";
+                imageZoom("MainImg", "myresult");
+            });
 
-            imageZoom("MainImg", "myresult");
+            mainimage.addEventListener("mouseout", function() {
+                document.getElementById("myresult").style.display = "none";
             });
         }, 200);
        /* window.onload = imageZoom("small-img", "myresult");  */
