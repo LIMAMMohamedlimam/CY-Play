@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="/src/css/single-product.css">
     <link rel="stylesheet" href="/src/css/acceuil-style.css">
     <link rel="stylesheet" href="/src/css/single-product.css">
+    <style>
+        * {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  /*set the size of the result div:*/
+  width: 300px;
+  height: 300px;
+}
+    </style>
     <title>Détails du produit</title>
 </head>
 <body>
@@ -107,7 +127,7 @@
                             $first_image_url = $row_image['image_url'];
                         }
                         echo "<div class='small-img-col'>";
-                        echo "<img src='".$row_image['image_url']."' width='100%' class='small-img' alt='".$row['name']."' data-index='".$count."'>";
+                        echo "<img id='small-img' src='".$row_image['image_url']."' width='100%' class='small-img' alt='".$row['name']."' data-index='".$count."'>";
                         echo "</div>";
                         $count++;
                     }
@@ -117,7 +137,9 @@
                 echo "</div>";
 
                 if (!empty($first_image_url)) {
+                    
                     echo "<img src='".$first_image_url."' width='60%' height='60%' id='MainImg' style=' border: 1px solid #2660aa; border-radius: 5px;' alt='".$row['name']."'>";
+                    echo "<div id='myresult' class='img-zoom-result'></div>";
                 }
 
                 echo "</div>";
@@ -142,7 +164,9 @@
                 echo "<p>Nombre d'achats: ".$row['nbofachat']."</p>";
                 echo "<p>Catégorie: ".$row['categorie']."</p>";
                 echo "</div>"; 
-                echo "</section>"; 
+                echo "</section>";
+                
+                
 
                 $category = $row['categorie'];
                 $sql_similar_products = "SELECT * FROM product WHERE categorie = '$category' AND id != $product_id LIMIT 3";
@@ -188,6 +212,66 @@
 
     <!-- JavaScript to handle image switching -->
     <script>
+/* window.onload = imageZoom("small-img", "myresult"); */
+    
+function imageZoom(imgID, resultID) {
+    console.log("hello");
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /* Create lens: */
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /* Insert lens: */
+  img.parentElement.insertBefore(lens, img);
+  /* Calculate the ratio between result DIV and lens: */
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /* Set background properties for the result DIV */
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /* Execute a function when someone moves the cursor over the image, or the lens: */
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /* And also for touch screens: */
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /* Prevent any other actions that may occur when moving over the image */
+    e.preventDefault();
+    /* Get the cursor's x and y positions: */
+    pos = getCursorPos(e);
+    /* Calculate the position of the lens: */
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /* Prevent the lens from being positioned outside the image: */
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /* Set the position of the lens: */
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /* Display what the lens "sees": */
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /* Get the x and y positions of the image: */
+    a = img.getBoundingClientRect();
+    /* Calculate the cursor's x and y coordinates, relative to the image: */
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /* Consider any page scrolling: */
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+    
+
         window.onload = function() {
     // Everything is fully loaded now
     const logo = document.getElementById('cy-logo');
@@ -231,11 +315,24 @@
                 MainImg.src = this.src;
             });
         }
+        // wait two seconds 
+        setTimeout(function() {
+            const mainimage = document.getElementById("MainImg");
+            mainimage.addEventListener("mouseover", function() {
+                
+
+            imageZoom("MainImg", "myresult");
+            });
+        }, 200);
+       /* window.onload = imageZoom("small-img", "myresult");  */
     </script>
     <script src="/src/Js/session_handler.js"></script>
     <script src="/src/Js/fetch_commands.js"></script>
     <script src="/src/Js/index.js"></script>
     <script src="/src/Js/gestion_stock.js"></script>
     <script src="/src/Js/logout.js"></script>
+    <script src="/src/Js/zoom.js"></script>
+
+    
 </body>
 </html>
