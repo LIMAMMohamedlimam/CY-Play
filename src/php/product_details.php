@@ -334,7 +334,7 @@ function imageZoom(imgID, resultID) {
     <script src="/src/Js/index.js"></script>
     <script src="/src/Js/gestion_stock.js"></script>
     <script src="/src/Js/logout.js"></script>
-    <script src="/src/Js/zoom.js"></script>
+    
 
     
 </body>
