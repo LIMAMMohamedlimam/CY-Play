@@ -61,7 +61,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
               alert(response.message); // Display error message
           } else {
             
-            window.location.href = "/src/modules/acceuil.html" ;
+            window.location.href = "/src/modules/index.html" ;
 
           }
       }
@@ -80,7 +80,7 @@ window.onload = function() {
 
     if (logo) {
         logo.addEventListener('click', () => {
-            window.location.href = 'acceuil.html';
+            window.location.href = 'index.html';
         });
     }
   

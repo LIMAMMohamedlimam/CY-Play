@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             alert('votre mail est bien envoyer');
-            window.location.href = "/src/modules/acceuil.html";
+            window.location.href = "/src/modules/index.html";
             // form.submit(); // Uncomment to proceed with form submission
         }
 
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             alert('votre mail est bien envoyer');
-            window.location.href = "/src/modules/acceuil.html";
+            window.location.href = "/src/modules/index.html";
             // form.submit(); // Uncomment to proceed with form submission
         }
     });

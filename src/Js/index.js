@@ -6,7 +6,7 @@ window.onload = function() {
 
     if (logo) {
         logo.addEventListener('click', () => {
-            window.location.href = '/src/modules/acceuil.html';
+            window.location.href = '/src/modules/index.html';
         });
     }
   
