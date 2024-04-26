@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sujet: sujet.value
             };
             
-            alert('votre mail est bien envoyer');
+            alert('votre message a bien été envoyé');
             window.location.href = "/src/modules/index.html";
             // form.submit(); // Uncomment to proceed with form submission
         }
