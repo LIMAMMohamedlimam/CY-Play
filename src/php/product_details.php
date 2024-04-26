@@ -43,7 +43,7 @@
         </div>
         <!-- Center section with search box and button -->
         <div class="center">
-            <input id="search-box" type="search" placeholder="Search...">
+            <input id="search-box" type="search" placeholder="recherche...">
             <button id="search-button" type="submit">
                 <img id="search-icon" src="/src/pictures/icons/search-icon.png" alt="">
             </button>
@@ -75,11 +75,11 @@
     <!-- Vertical navigation menu with titles -->
     <aside class="vertical-nav">
         <h2 id="h-in-vertical-nav">CY PLAY</h2>
-        <h3 id="h-in-vertical-nav">Product Description</h3>
+        <h3 id="h-in-vertical-nav">Description du Produit</h3>
         <div class="left-side">
             <ul id="nav">
                 <li class="nav-link">
-                    <h1  class="navigation-h1" data-name="acceuil">Home</h1>
+                    <h1  class="navigation-h1" data-name="accueil">Home</h1>
                 </li>
                 <li class="nav-link">
                     <h1 class="navigation-h1" data-name="About">About</h1>
