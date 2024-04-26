@@ -1,16 +1,16 @@
 
 
 -- Step 1: Create the Database
-CREATE DATABASE IF NOT EXISTS `cy-play`;
-USE `cy-play`;
+CREATE DATABASE IF NOT EXISTS `cy_play`;
+USE `cy_play`;
 
 -- Step 2: Create the `user` Table
 CREATE TABLE IF NOT EXISTS `user` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
-    `prenoun` VARCHAR(255) NOT NULL,
+    `pronoun` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL UNIQUE,
-    `passcode` VARCHAR(255) NOT NULL
+    `password` VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS `product`;
