@@ -20,7 +20,7 @@ $data = json_decode($json);
 
 // Prepare the SQL statement
 $stmt = $conn->prepare("INSERT INTO mails (name, pronoun, email, message, dateofbirth, sujet) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssss", $data->name, $data->prenom, $data->email, $data->message, $data->birthDate, $data->sujet);
+$stmt->bind_param("ssssss", $data->name, $data->prenom, $data->email, $data->sujet, $data->birthDate, $data->sujet );
 
 // Execute the statement and check for errors
 if ($stmt->execute()) {

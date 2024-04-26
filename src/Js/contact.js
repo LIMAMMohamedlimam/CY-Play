@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var prenom = document.querySelector('#prenom');
     var birthDateInput = document.querySelector('#naissance'); 
     var sujet = document.querySelector('#sujet');
+    var contact_date = document.querySelector('#contact_date');
+   
+    var genre = document.querySelector('#genre');
+
+    setEmpty(); 
 
     // Function to show alert
     function showAlert(field) {
@@ -40,11 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add an event listener to the form
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
-        /* setEmpty(); */ // Clears all fields, this might not be intended before validation checks
+        // Clears all fields, this might not be intended before validation checks
 
         let isValid = true;
 
         // Validate the form
+        if(contact_date.value.trim() === ''){
+            /* contact_date.style.display = 'inline-block'; */
+            showAlert('contact_date');
+            isValid = false;
+        }
+        else{
+            hideAlert('contact_date');
+            /* contact_date.style.display = 'none'; */
+        }
         if (name.value.trim() === '') {
             showAlert('nom');
             isValid = false;
@@ -92,6 +106,22 @@ document.addEventListener('DOMContentLoaded', function() {
         // Submit the form only if all validations pass
         if (isValid) {
             var data = {
+            name: name.value,
+            prenom: prenom.value,
+            email: email.value,
+            message: message.value,
+            birthDate: birthDateInput.value,
+            sujet: sujet.value
+            };
+            
+            alert('votre mail est bien envoyer');
+            window.location.href = "/src/modules/acceuil.html";
+            // form.submit(); // Uncomment to proceed with form submission
+        }
+
+        // Submit the form only if all validations pass
+        if (isValid) {
+            var data = {
                 name: name.value,
                 prenom: prenom.value,
                 email: email.value,
@@ -99,8 +129,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 birthDate: birthDateInput.value,
                 sujet: sujet.value
             };
-            send(data) ;
+            
             alert('votre mail est bien envoyer');
+            window.location.href = "/src/modules/acceuil.html";
             // form.submit(); // Uncomment to proceed with form submission
         }
     });
@@ -108,18 +139,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// create send function to send all the form data  to the contact.php file
-function send(data) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/src/php/contact.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(data));
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
-        }
-    }
-}
-
-
-// data is all the form data
