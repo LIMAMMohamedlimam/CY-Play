@@ -1,6 +1,17 @@
 
 
+-- Step 1: Create the Database
+CREATE DATABASE IF NOT EXISTS `cy-play`;
+USE `cy-play`;
 
+-- Step 2: Create the `user` Table
+CREATE TABLE IF NOT EXISTS `user` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL,
+    `prenoun` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL UNIQUE,
+    `passcode` VARCHAR(255) NOT NULL
+);
 
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
@@ -16,6 +27,36 @@ CREATE TABLE IF NOT EXISTS `product` (
   `fournisseur` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+-- Step 4: Create the `fournisseur` Table
+CREATE TABLE IF NOT EXISTS `fournisseur` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `commande` (
+    `user_id` INT NOT NULL,
+    `product_id` INT NOT NULL,
+    `order_date` DATETIME NOT NULL,
+    `quantity` INT NOT NULL,
+    `status` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`user_id`, `product_id`, `order_date`),
+    FOREIGN KEY (`user_id`) REFERENCES `user`(`id`),
+    FOREIGN KEY (`product_id`) REFERENCES `product`(`id`)
+);
+
+
+DROP TABLE IF EXISTS `productimages`;
+CREATE TABLE IF NOT EXISTS `productimages` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /* 
 
