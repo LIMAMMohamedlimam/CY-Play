@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     `name` VARCHAR(255) NOT NULL,
     `prenoun` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL UNIQUE,
-    `passcode` VARCHAR(255) NOT NULL
+    `password` VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS `product`;
