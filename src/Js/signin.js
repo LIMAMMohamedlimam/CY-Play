@@ -37,7 +37,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
         if (data.status) {
             // Redirect to home page
-            window.location.href = '/src/modules/acceuil.html';
+            window.location.href = '/src/modules/index.html';
         } else {
             // Handle error case
             console.log(data);
@@ -57,7 +57,7 @@ window.onload = function() {
 
     if (logo) {
         logo.addEventListener('click', () => {
-            window.location.href = 'acceuil.html';
+            window.location.href = 'index.html';
         });
     }
   

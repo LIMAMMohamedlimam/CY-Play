@@ -281,14 +281,14 @@ function imageZoom(imgID, resultID) {
 
     if (logo) {
         logo.addEventListener('click', () => {
-            window.location.href = '/src/modules/acceuil.html';
+            window.location.href = '/src/modules/index.html';
         });
     }
   
     const logoText = document.getElementById('cy-play-logo-Text');
     if (logoText) {
         logoText.addEventListener('click', () => {
-            window.location.href = '/src/modules/acceuil.html';
+            window.location.href = '/src/modules/index.html';
         });
     }
 
