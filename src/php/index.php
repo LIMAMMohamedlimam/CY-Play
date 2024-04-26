@@ -11,11 +11,12 @@
     <h1>Produits disponibles</h1>
     <div class="product-details">
     <?php
+    require_once '../../constants/constants.php';
 // Update database connection details
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'cy-play';
+$host = DB_HOST;
+$user = DB_USER;
+$password = DB_PASSWORD;
+$dbname = DB_NAME;
 
 // Connect to the database
 $mysqli = new mysqli($host, $user, $password, $dbname);

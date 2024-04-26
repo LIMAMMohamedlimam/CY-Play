@@ -95,6 +95,8 @@
     <!-- Main content section -->
     <main>
     <?php
+
+    require_once '../../constants/constants.php';
     /* $product_id =1; */
     if (isset($_GET['id'])) {
         $product_id = $_GET['id'];
@@ -105,7 +107,7 @@
         
 
 
-        $mysqli = new mysqli("localhost", "root", "", "cy-play");
+        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if($mysqli->connect_error) {
             die("Connection failed: " . $mysqli->connect_error);
         }

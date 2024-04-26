@@ -19,6 +19,20 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 
 
+DROP TABLE IF EXISTS `mails`;
+CREATE TABLE IF NOT EXISTS `mails` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `pronoun` varchar(255) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `genre` varchar(50) NOT NULL,
+  `fonction` varchar(255) NOT NULL,
+  `sujet` text NOT NULL,
+  `mail_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 
 
 

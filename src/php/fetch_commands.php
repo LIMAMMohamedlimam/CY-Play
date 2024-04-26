@@ -1,4 +1,6 @@
 <?php
+
+require_once '../../constants/constants.php'; // Require the constants file
 session_start(); // Start the session
 
 header('Content-Type: application/json'); // Set the header to return JSON content
@@ -11,10 +13,10 @@ if (isset($_SESSION['user_id'])) {
 
 
     // Database connection parameters
-    $host = 'localhost';
-    $dbname = 'cy-play';
-    $username = 'root';
-    $password = '';
+    $host = DB_HOST;
+    $dbname =DB_NAME;
+    $username = DB_USER;
+    $password = DB_PASSWORD;
 
    // Create a new PDO instance
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

@@ -1,10 +1,10 @@
 <?php
-
+require_once '../../constants/constants.php'; // Require the constants file
 // Assuming you have a MySQL database
-$host = 'localhost'; // or your host
-$username = 'root';
-$password = '';
-$database = 'cy-play';
+$host = DB_HOST; // or your host
+$username = DB_USER;
+$password = DB_PASSWORD;
+$database = DB_NAME;
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);

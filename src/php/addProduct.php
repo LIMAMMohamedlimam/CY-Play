@@ -1,9 +1,11 @@
 <?php
+
+require_once '../../constants/constants.php';
 // Start or resume a session
 session_start();
 
 // Create a connection to the database
-$mysqli = new mysqli("localhost", "root", "", "cy-play");
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }

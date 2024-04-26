@@ -91,8 +91,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Submit the form only if all validations pass
         if (isValid) {
-            console.log('Form is valid, ready to be submitted or processed further.');
+            var data = {
+                name: name.value,
+                prenom: prenom.value,
+                email: email.value,
+                message: message.value,
+                birthDate: birthDateInput.value,
+                sujet: sujet.value
+            };
+            send(data) ;
+            alert('votre mail est bien envoyer');
             // form.submit(); // Uncomment to proceed with form submission
         }
     });
 });
+
+
+
+// create send function to send all the form data  to the contact.php file
+function send(data) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/src/php/contact.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+        }
+    }
+}
+
+
+// data is all the form data

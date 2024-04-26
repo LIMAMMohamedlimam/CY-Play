@@ -1,14 +1,16 @@
 <?php
 
+require_once '../../constants/constants.php'; // Require the constants file
+
 header('Content-Type: application/json');
 
 
 
 // Define database connection parameters
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "cy-play";
+$servername = DB_HOST;
+$username = DB_USER;
+$password = DB_PASSWORD;
+$dbname = DB_NAME;
 
 // Establish connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
